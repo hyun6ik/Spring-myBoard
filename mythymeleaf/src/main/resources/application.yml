@@ -1,22 +1,15 @@
 spring:
   datasource:
-    url: jdbc:h2:tcp://localhost/~/board;
-    username: sa
-    password:
-    driver-class-name: org.h2.Driver
-
+    url: jdbc:mariadb://localhost:3306/springboard
+    driver-class-name: org.mariadb.jdbc.Driver
+    username: hyunsik
+    password: 123456
   jpa:
+    open-in-view: false
+    generate-ddl: true
+    show-sql: true
     hibernate:
-      ddl-auto: create
-    properties:
-      hibernate:
-        format_sql: true
-
-  data:
-    web:
-      pageable:
-        default-page-size: 10
-        max-page-size: 2000
+      ddl-auto: create-drop
 
 logging:
   level:
