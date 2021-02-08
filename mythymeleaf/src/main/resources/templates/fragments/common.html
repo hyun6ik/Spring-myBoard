@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top" th:fragment="menu(menu)">
@@ -19,6 +19,13 @@
                 <a class="nav-link" href="#" th:href="@{/board/list}">게시판<span class="sr-only" th:if="${menu} == 'board'"></span></a></a>
               </li>
             </ul>
+            <a class="btn btn-secondary my-2 my-sm-0" th:href="@{/account/login}"
+               sec:authorize="!isAuthenticated()">로그인</a>
+            <form class="form-inline my-2 my-lg-0" th:action="@{/logout}" method="POST" sec:authorize="isAuthenticated()">
+              <span class="text-white" sec:authentication="name">사용자</span>
+              <span class="text-white mx-2" sec:authentication="principal.authorities">권한</span>
+              <button class="btn btn-secondary my-2 my-sm-0" type="submit">로그아웃</button>
+            </form>
           </div>
         </div>
       </nav>

@@ -24,6 +24,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-security'
 	implementation 'org.springframework.security:spring-security-test'
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	runtimeOnly 'org.mariadb.jdbc:mariadb-java-client'
 	compile group: 'org.hibernate', name: 'hibernate-validator', version: '6.1.0.Final'
 	compileOnly 'org.projectlombok:lombok'
